@@ -15,4 +15,8 @@
     <string name="registrarme">Registrarme</string>
     <string name="ya_tengo_una_cuenta">Ya tengo una cuenta</string>
     <string name="crear_cuenta">Crear cuenta</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="is_required">Es requerido</string>
 </resources>

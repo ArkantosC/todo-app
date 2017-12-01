@@ -25,14 +25,23 @@
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/correo"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/tilEmail">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/correo"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tilPassword">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -43,7 +52,7 @@
     </android.support.design.widget.TextInputLayout>
 
 
-    <TextView
+    <TextView android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/olvid_mi_contrase_a"
@@ -51,7 +60,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
 
-    <Switch
+    <Switch android:id="@+id/swRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -59,13 +68,13 @@
         android:textColor="@color/forgot_password"
         android:switchPadding="5dp"/>
 
-    <Button
+    <Button android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/iniciar"
         android:layout_gravity="center_horizontal"/>
 
-    <Button
+    <Button android:id="@+id/btnHasNotAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
