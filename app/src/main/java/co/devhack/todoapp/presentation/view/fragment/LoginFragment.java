@@ -1,7 +1,9 @@
 package co.devhack.todoapp.presentation.view.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,11 +18,12 @@ import co.devhack.todoapp.helpers.Utilities;
 import co.devhack.todoapp.presentation.presenter.LoginContract;
 import co.devhack.todoapp.presentation.presenter.LoginPresenter;
 import co.devhack.todoapp.presentation.view.activity.AuthActivity;
+import co.devhack.todoapp.presentation.view.activity.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment implements LoginContract.View {
+public class LoginFragment extends Fragment implements LoginContract.View, View.OnClickListener {
 
     private LoginContract.UserActionListener mActionListener;
     private TextInputLayout tilEmail;
@@ -53,18 +56,33 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         btnStart = view.findViewById(R.id.btnStart);
         btnHasNotAccount = view.findViewById(R.id.btnHasNotAccount);
 
+        btnStart.setOnClickListener(this);
+        btnHasNotAccount.setOnClickListener(this);
+        tvForgotPassword.setOnClickListener(this);
+
         return view;
     }
 
     @Override
     public void goToSignUpFragment() {
         AuthActivity authActivity =  (AuthActivity) getActivity();
-        authActivity.replaceFragment(SignUpFragment.getInstance(), false);
+        authActivity.replaceFragment(SignUpFragment.getInstance(), true);
     }
 
     @Override
     public void goToMainActivity() {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
+    @Override
+    public void showMessageError(Exception error) {
+        Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG).show();
+    }
+
+    public void goToRecoveryPassword() {
+        RecoverPasswordFragment recoverPasswordFragment = RecoverPasswordFragment.getInstace();
+        recoverPasswordFragment.show(getFragmentManager(), null);
     }
 
     private void onLogin() {
@@ -97,5 +115,20 @@ public class LoginFragment extends Fragment implements LoginContract.View {
             }
 
         } catch (Exception e) {}
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnStart:
+                onLogin();
+                break;
+            case R.id.btnHasNotAccount:
+                goToSignUpFragment();
+                break;
+            case R.id.tvForgotPassword:
+                goToRecoveryPassword();
+                break;
+        }
     }
 }
