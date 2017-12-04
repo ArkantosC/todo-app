@@ -50,7 +50,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
 
         mActionListener = new SignUpPresenter(this);
 
-        tilEmailSignUp = view.findViewById(R.id.tilFullName);
+        tilFullName = view.findViewById(R.id.tilFullName);
         tilEmailSignUp = view.findViewById(R.id.tilEmailSignUp);
         tilPasswordSignUp = view.findViewById(R.id.tilPasswordSignUp);
         btnRegister = view.findViewById(R.id.btnRegister);
@@ -82,9 +82,9 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
         try {
 
             boolean result = true;
-            String fullName = tilFullName.getEditText().toString();
-            String email = tilEmailSignUp.getEditText().toString();
-            String password = tilPasswordSignUp.getEditText().toString();
+            String fullName = tilFullName.getEditText().getText().toString();
+            String email = tilEmailSignUp.getEditText().getText().toString();
+            String password = tilPasswordSignUp.getEditText().getText().toString();
 
             if (Utilities.isEmpty(fullName)) {
                 tilFullName.setError("Es requerido");
