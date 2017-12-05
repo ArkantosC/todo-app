@@ -12,5 +12,6 @@ import co.devhack.todoapp.helpers.Callback;
 public interface UserRepository {
 
     void login(String email, String password, Callback<User> callback);
-    void signUp(User user, Callback<User> callbakc);
+    void signUp(User user, Callback<User> callback);
+    void recoverPassword(String email, Callback<User> callback);
 }

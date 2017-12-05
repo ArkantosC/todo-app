@@ -1,6 +1,8 @@
 package co.devhack.todoapp.respository.impl;
 
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -15,6 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import co.devhack.todoapp.domain.model.User;
 import co.devhack.todoapp.helpers.Callback;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by diegocortes on 11/30/17.
@@ -82,5 +86,20 @@ public class UserFirebaseRepository implements UserRepository {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void recoverPassword(String email, final Callback<User> callback) {
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "Fue enviado un correo para recupear contraseña.");
+                    } else {
+                        callback.error(task.getException());
+                    }
+                }
+        });
     }
 }

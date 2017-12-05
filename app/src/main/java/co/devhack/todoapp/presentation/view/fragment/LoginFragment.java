@@ -81,7 +81,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     }
 
     public void goToRecoveryPassword() {
-        RecoverPasswordFragment recoverPasswordFragment = RecoverPasswordFragment.getInstace();
+        RecoverPasswordFragment recoverPasswordFragment = RecoverPasswordFragment.getInstance();
         recoverPasswordFragment.show(getFragmentManager(), null);
     }
 

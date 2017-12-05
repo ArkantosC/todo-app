@@ -53,4 +53,19 @@ public class UserUseCaseImpl implements UserUseCase {
             }
         });
     }
+
+    @Override
+    public void recoverPassword(String email, final Callback<User> callback) {
+        userRepository.recoverPassword(email, new Callback<User>() {
+            @Override
+            public void success(User user) {
+                callback.success(user);
+            }
+
+            @Override
+            public void error(Exception error) {
+                callback.error(error);
+            }
+        });
+    }
 }
