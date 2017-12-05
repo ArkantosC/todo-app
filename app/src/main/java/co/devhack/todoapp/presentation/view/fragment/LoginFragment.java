@@ -19,6 +19,7 @@ import co.devhack.todoapp.presentation.presenter.LoginContract;
 import co.devhack.todoapp.presentation.presenter.LoginPresenter;
 import co.devhack.todoapp.presentation.view.activity.AuthActivity;
 import co.devhack.todoapp.presentation.view.activity.MainActivity;
+import co.devhack.todoapp.presentation.view.dialog.RecoverPasswordFragment;
 
 /**
  * A simple {@link Fragment} subclass.

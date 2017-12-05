@@ -22,9 +22,9 @@ public class RecoverPasswordPresenter implements RecoverPasswordContract.UserAct
     @Override
     public void onRecoverPassword(String email) {
 
-        userUseCase.recoverPassword(email, new Callback<User>() {
+        userUseCase.recoverPassword(email, new Callback<Boolean>() {
             @Override
-            public void success(User result) {
+            public void success(Boolean result) {
                 view.goToLoginFragment();
             }
 

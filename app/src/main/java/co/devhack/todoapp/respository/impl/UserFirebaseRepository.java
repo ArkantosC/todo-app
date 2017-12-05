@@ -89,7 +89,7 @@ public class UserFirebaseRepository implements UserRepository {
     }
 
     @Override
-    public void recoverPassword(String email, final Callback<User> callback) {
+    public void recoverPassword(String email, final Callback<Boolean> callback) {
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

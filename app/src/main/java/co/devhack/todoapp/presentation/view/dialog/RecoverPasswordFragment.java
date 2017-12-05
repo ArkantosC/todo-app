@@ -1,4 +1,4 @@
-package co.devhack.todoapp.presentation.view.fragment;
+package co.devhack.todoapp.presentation.view.dialog;
 
 
 import android.os.Bundle;
