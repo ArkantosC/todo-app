@@ -9,8 +9,9 @@ public interface LoginContract {
     interface View {
         void goToSignUpFragment();
         void goToMainActivity();
-
         void showMessageError(Exception error);
+        void showProgress();
+        void hideProgress();
     }
 
     interface UserActionListener {
