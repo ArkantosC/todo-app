@@ -18,6 +18,7 @@ public class TypeTransmogrifiers {
         return date.getTime();
     }
 
+    @TypeConverter
     public static Date toDate(Long millisSinceEpoch) {
         if (millisSinceEpoch == null) {
             return null;

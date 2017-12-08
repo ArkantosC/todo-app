@@ -1,9 +1,11 @@
 package co.devhack.todoapp.presentation.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.devhack.todoapp.domain.model.Todo;
 import co.devhack.todoapp.domain.usecase.TodoUseCase;
+import co.devhack.todoapp.domain.usecase.impl.TodoUseCaseImpl;
 import co.devhack.todoapp.helpers.Callback;
 
 /**
@@ -12,8 +14,15 @@ import co.devhack.todoapp.helpers.Callback;
 
 public class TodoListPresenter implements TodoListContract.UserActionListener
 {
+    private TodoListContract.View view;
     private TodoUseCase todoUseCase;
     private List<Todo> listTodos;
+
+    public TodoListPresenter(TodoListContract.View view) {
+        this.view = view;
+        this.todoUseCase = new TodoUseCaseImpl();
+        this.listTodos = new ArrayList<>(0);
+    }
 
     @Override
     public void loadAll() {

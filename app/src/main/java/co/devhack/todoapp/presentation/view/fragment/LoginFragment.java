@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     private Switch swRemember;
     private Button btnStart;
     private Button btnHasNotAccount;
+    private ProgressBar pbProgress;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -50,6 +52,7 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
 
         mActionListener = new LoginPresenter(this);
 
+        pbProgress = view.findViewById(R.id.pbProgress);
         tilEmail = view.findViewById(R.id.tilEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvForgotPassword = view.findViewById(R.id.tvForgotPassword);
@@ -79,6 +82,16 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     @Override
     public void showMessageError(Exception error) {
         Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showProgress() {
+        pbProgress.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        pbProgress.setVisibility(View.INVISIBLE);
     }
 
     public void goToRecoveryPassword() {

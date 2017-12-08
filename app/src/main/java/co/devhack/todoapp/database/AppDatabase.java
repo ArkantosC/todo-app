@@ -17,7 +17,7 @@ import co.devhack.todoapp.respository.impl.TodoLocalRepository;
  * Created by diegocortes on 12/6/17.
  */
 
-@Database(entities = {Todo.class}, version = 1)
+@Database(entities = {Todo.class}, version = 1, exportSchema = false)
 @TypeConverters({TypeTransmogrifiers.class})
 public abstract class AppDatabase extends RoomDatabase {
 
