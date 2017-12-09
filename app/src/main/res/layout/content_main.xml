@@ -9,7 +9,6 @@
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/main_container">
 
-
     <include layout="@layout/view_todo_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
