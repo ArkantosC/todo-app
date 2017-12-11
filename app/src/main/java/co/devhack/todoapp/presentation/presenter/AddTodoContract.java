@@ -11,6 +11,7 @@ public interface AddTodoContract {
     interface View {
         void save();
         void goToViewTodoItem();
+        void goToDatePickerFragment();
         void showErrorMessage(Exception error);
     }
 

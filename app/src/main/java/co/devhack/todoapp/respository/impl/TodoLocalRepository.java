@@ -22,7 +22,7 @@ public class TodoLocalRepository implements TodoRepository {
     public interface TodoDao {
 
         @Insert
-        void insert(Todo todo);
+        Long insert(Todo todo);
 
         @Update
         void update(Todo todo);
@@ -34,12 +34,10 @@ public class TodoLocalRepository implements TodoRepository {
         List<Todo> getAll();
     }
 
-
-
     @Override
-    public void insert(Todo todo) {
+    public Long insert(Todo todo) {
         TodoDao todoDao = AppDatabase.getInstance().todoDao();
-        todoDao.insert(todo);
+        return todoDao.insert(todo);
     }
 
     @Override

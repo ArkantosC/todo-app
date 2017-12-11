@@ -25,7 +25,7 @@ public class AddTodoPresenter implements AddTodoContract.UserActionListener {
         todoUseCase.insert(description, finishDate, isFinish, image, color, new Callback<Todo>() {
             @Override
             public void success(Todo result) {
-                view.refreshTodoList();
+                view.save();
                 view.goToViewTodoItem();
             }
 

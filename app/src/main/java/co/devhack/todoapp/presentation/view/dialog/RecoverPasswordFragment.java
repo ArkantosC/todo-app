@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,7 +24,7 @@ public class RecoverPasswordFragment extends DialogFragment implements RecoverPa
 
     private RecoverPasswordContract.UserActionListener mActionListener;
     private EditText etEmailRecoverPassword;
-    private TextView tvRecover;
+    private Button tvRecover;
 
     public RecoverPasswordFragment() {
         // Required empty public constructor

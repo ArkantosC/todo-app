@@ -22,4 +22,7 @@
     <string name="recover_password">Recuperar Contraseña</string>
     <string name="btnSave">Guardar</string>
     <string name="add_photo">Agregar foto</string>
+    <string name="aceptar_calendar">Aceptar</string>
+    <string name="recovery_button">Recuperar</string>
+    <string name="email_recovery">Correo</string>
 </resources>
